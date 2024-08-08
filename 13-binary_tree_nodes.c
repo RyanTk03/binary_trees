@@ -11,11 +11,14 @@ size_t binary_tree_nodes(const binary_tree_t *tree)
 {
 	if (tree)
 	{
+		size_t l_nodes = 0;
+		size_t r_nodes = 0;
+
 		if (!tree->left && !tree->right)
 			return (0);
 
-		size_t l_nodes = binary_tree_nodes(tree->left);
-		size_t r_nodes = binary_tree_nodes(tree->right);
+		l_nodes = binary_tree_nodes(tree->left);
+		r_nodes = binary_tree_nodes(tree->right);
 
 		return (1 + l_nodes + r_nodes);
 	}
