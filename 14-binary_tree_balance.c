@@ -14,13 +14,14 @@ int binary_tree_balance(const binary_tree_t *tree)
 {
 	if (tree)
 	{
-		size_t l_height = 1;
-		size_t r_height = 1;
+		size_t l_height = 0;
+		size_t r_height = 0;
 
-		if (!binary_tree_is_leaf(tree->left))
-			l_height = binary_tree_height(tree->left);
-		if (!binary_tree_is_leaf(tree->right))
-			r_height = binary_tree_height(tree->right);
+		if (!tree->left && !tree->right)
+			return (0);
+
+		l_balance = binary_tree_balance(tree->left);
+		r_balance = binary_tree_balance(tree->right);
 
 		return (l_height - r_height);
 	}
