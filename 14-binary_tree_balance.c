@@ -20,8 +20,8 @@ size_t __binary_tree_height(const binary_tree_t *tree)
 		if (!tree->left && !tree->right)
 			return (0);
 
-		l_height = binary_tree_height(tree->left);
-		r_height = binary_tree_height(tree->right);
+		l_height = __binary_tree_height(tree->left);
+		r_height = __binary_tree_height(tree->right);
 
 		return (1 + (l_height > r_height ? l_height : r_height));
 	}
